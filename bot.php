@@ -17,9 +17,9 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 
 			if (!preg_match('/[^A-Za-z]/', $text)){
-				$text = 'ค้นหาได้เฉพาะภาษาอังกฤษเท่านั้น';
-			}else{
 				$text = engtothai($text);
+			}else{
+				$text = 'ค้นหาได้เฉพาะภาษาอังกฤษเท่านั้น';
 			}
 			
 			// Build message to reply back
