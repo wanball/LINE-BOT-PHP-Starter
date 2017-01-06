@@ -41,14 +41,20 @@ while ($row = $results->fetchArray()) {
         $result .= '</strong>';
         $result .= $row['ethai'];
     }
-    $result .= "\n";    
+    //$result .= "\n";    
 }
 			
 			
 			// Build message to reply back
 			$messages = [
+				{
+				    "type":"text",
+				    "text":"Hello, user"
+				},
+				{
 				'type' => 'text',
 				'text' => $result
+				}
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
