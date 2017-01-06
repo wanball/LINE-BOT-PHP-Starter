@@ -49,10 +49,10 @@ echo "OK";
 echo engtothai('abaft');
 echo '---------------------------';
 function engtothai($text){
-	/*
+	
 	$path_log = 'lexitron.sqlite';
 	$db = new SQLite3($path_log);
-
+/*
 	$result = '';
 	$sql = "SELECT * FROM eng2thai WHERE esearch = '".$text."'";
 	$results = $db->query($sql);
