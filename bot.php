@@ -48,8 +48,8 @@ while ($row = $results->fetchArray()) {
 			// Build message to reply back
 			$messages = [
 				{
-				    "type":"text",
-				    "text":"Hello, user"
+				    "type"=>"text",
+				    "text"=>"Hello, user"
 				},
 				{
 				'type' => 'text',
