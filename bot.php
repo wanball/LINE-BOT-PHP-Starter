@@ -18,10 +18,10 @@ if (!is_null($events['events'])) {
 
 //dic
 $path_log = 'lexitron.sqlite';
-$db = new SQLite3($path_log);
-$result = '';
-$sql = "SELECT * FROM eng2thai WHERE esearch = '".$text."'";
-$results = $db->query($sql);
+//$db = new SQLite3($path_log);
+//$result = '';
+$sql = "SELECT * FROM eng2thai WHERE esearch = '".$path_log."'";
+/*$results = $db->query($sql);
 while ($row = $results->fetchArray()) {
     $result .= '[';
     $result .= $row['ecat'];
@@ -43,7 +43,7 @@ while ($row = $results->fetchArray()) {
     }
     //$result .= "\n";    
 }
-			
+*/			
 			
 			// Build message to reply back
 			// Build message to reply back
