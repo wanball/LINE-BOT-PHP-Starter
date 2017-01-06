@@ -46,9 +46,10 @@ if (!is_null($events['events'])) {
 }
 
 echo "OK";
-echo engtothai($_GET['p']);
+echo engtothai('abaft');
 echo '---------------------------';
 function engtothai($text){
+	/*
 	$path_log = 'lexitron.sqlite';
 	$db = new SQLite3($path_log);
 
@@ -74,5 +75,6 @@ function engtothai($text){
 	    }
 	    $result .= "\n";    
 	}
-return $result;
+return $result; */
+return $text;
 }
