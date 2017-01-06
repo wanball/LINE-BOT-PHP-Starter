@@ -16,40 +16,10 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
-//dic
-$path_log = 'lexitron.sqlite';
-//$db = new SQLite3($path_log);
-//$result = '';
-$sql = "SELECT * FROM eng2thai WHERE esearch = '".$path_log."'";
-/*$results = $db->query($sql);
-while ($row = $results->fetchArray()) {
-    $result .= '[';
-    $result .= $row['ecat'];
-    $result .= '] ';
-    $result .= $row['tentry'];
-
-    if($row['esyn'] != ''){
-        $result .= ',<strong>';
-        $result .= ' Syn. ';
-        $result .= '</strong>';
-        $result .= $row['esyn'];
-    }
-
-    if($row['ethai'] != ''){
-        $result .= ',<strong>';
-        $result .= ' See also: ';
-        $result .= '</strong>';
-        $result .= $row['ethai'];
-    }
-    //$result .= "\n";    
-}
-*/			
-			
-			// Build message to reply back
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $text.'_'.$sql
+				'text' => $text
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
@@ -75,3 +45,33 @@ while ($row = $results->fetchArray()) {
 	}
 }
 echo "OK";
+echo engtothai($_GET['p']);
+
+function engtothai($text){
+	$path_log = 'lexitron.sqlite';
+	$db = new SQLite3($path_log);
+
+	$result = '';
+	$sql = "SELECT * FROM eng2thai WHERE esearch = '".$text."'";
+	$results = $db->query($sql);
+	while ($row = $results->fetchArray()) {
+	    $result .= '[';
+	    $result .= $row['ecat'];
+	    $result .= '] ';
+	    $result .= $row['tentry'];
+	    if($row['esyn'] != ''){
+		$result .= ',<strong>';
+		$result .= ' Syn. ';
+		$result .= '</strong>';
+		$result .= $row['esyn'];
+	    }
+	    if($row['ethai'] != ''){
+		$result .= ',<strong>';
+		$result .= ' See also: ';
+		$result .= '</strong>';
+		$result .= $row['ethai'];
+	    }
+	    $result .= "\n";    
+	}
+return $result;
+}
