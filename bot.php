@@ -46,15 +46,10 @@ while ($row = $results->fetchArray()) {
 			
 			
 			// Build message to reply back
+			// Build message to reply back
 			$messages = [
-				{
-				    "type"=>"text",
-				    "text"=>"Hello, user"
-				},
-				{
 				'type' => 'text',
-				'text' => $result
-				}
+				'text' => $text.'_'.$sql
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
