@@ -16,10 +16,16 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
+			if (!preg_match('/[^A-Za-z]/', $string)){
+				$text = 'ค้นหาได้เฉพาะภาษาอังกฤษเท่านั้น';
+			}else{
+				$text = engtothai($text);
+			}
+			
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => engtothai($text)
+				'text' => $text
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
