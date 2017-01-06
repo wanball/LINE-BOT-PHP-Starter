@@ -50,31 +50,9 @@ echo engtothai('abaft');
 echo '---------------------------';
 function engtothai($text){
 	
-	$path_log = 'lexitron.sqlite';
-	$db = new SQLite3($path_log);
-/*
-	$result = '';
-	$sql = "SELECT * FROM eng2thai WHERE esearch = '".$text."'";
-	$results = $db->query($sql);
-	while ($row = $results->fetchArray()) {
-	    $result .= '[';
-	    $result .= $row['ecat'];
-	    $result .= '] ';
-	    $result .= $row['tentry'];
-	    if($row['esyn'] != ''){
-		$result .= ',<strong>';
-		$result .= ' Syn. ';
-		$result .= '</strong>';
-		$result .= $row['esyn'];
-	    }
-	    if($row['ethai'] != ''){
-		$result .= ',<strong>';
-		$result .= ' See also: ';
-		$result .= '</strong>';
-		$result .= $row['ethai'];
-	    }
-	    $result .= "\n";    
-	}
-return $result; */
-return $text;
+$url = 'http://campaignactivity.com/demo/index.php?p='.$text;
+$ch = curl_init($url);
+$ret = curl_exec($ch);
+curl_close($ch);
+return $text.' '.$ret;
 }
